@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+:root{
+    --text-color-main: #178ccf;
+    --text-link-main: #178ccf;
+    --text-link-light: #eeefee;
+    --text-link-light-hover: #eeefee;
+    --text-link-hover: #024265;
+    --body-color: #aca8a8;
+}
+body{
+    background-color: var(--body-color);
+}
