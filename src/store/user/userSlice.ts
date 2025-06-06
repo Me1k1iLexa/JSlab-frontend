@@ -16,7 +16,7 @@ const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        loginRequest(state) {
+        loginRequest(state, _action: PayloadAction<{email: string; password: string}>) {
             state.loading = true
             state.error = null
         },
