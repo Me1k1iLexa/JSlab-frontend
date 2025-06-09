@@ -27,6 +27,17 @@ const userSlice = createSlice({
         loginFailure(state, action: PayloadAction<string>) {
             state.loading = false
             state.error = action.payload
+        },
+        registerRequest(state, _action: PayloadAction<{ username: string; email: string; password: string}>) {
+            state.loading = true
+            state.error = null
+        },
+        registerSuccess(state) {
+            state.loading = false
+        },
+        registerFailure(state, action: PayloadAction<string>) {
+            state.loading = false
+            state.error = action.payload
         }
     }
 })
@@ -34,6 +45,9 @@ const userSlice = createSlice({
 export const {
     loginRequest,
     loginSuccess,
-    loginFailure
+    loginFailure,
+    registerRequest,
+    registerSuccess,
+    registerFailure
 } = userSlice.actions
 export default userSlice.reducer
