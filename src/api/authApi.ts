@@ -8,3 +8,6 @@ export const loginApi = (data: { email: string; password: string }) => {
 export const registerApi = (data: { email: string; password: string }) => {
     return axios.post(`${API_URL}/auth/register`, data, { withCredentials: true });
 }
+export const loadUserApi = () => {
+    return axios.get(`${API_URL}/auth/me`, { withCredentials: true });
+}
