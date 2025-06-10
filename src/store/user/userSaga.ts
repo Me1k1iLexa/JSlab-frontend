@@ -1,13 +1,8 @@
 import { put, takeLatest,call} from 'redux-saga/effects'
 import {loginFailure, loginRequest, loginSuccess, registerRequest, registerSuccess, registerFailure} from "./userSlice.ts";
-import axios, {type AxiosResponse } from "axios";
+import {type AxiosResponse } from "axios";
+import {loginApi, registerApi} from "../../api/authApi.ts";
 
-const loginApi = (data: { email: string; password: string }) => {
-    return axios.post('/auth/login', data, {withCredentials: true});
-}
-const registerApi = (data: { email: string; password: string }) => {
-    return axios.post('/auth/register', data)
-}
 
 function* handleLogin(action: ReturnType<typeof loginRequest>) {
     try{
