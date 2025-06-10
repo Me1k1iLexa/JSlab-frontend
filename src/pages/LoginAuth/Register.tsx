@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import type {RootState} from "../../store";
 import { registerRequest} from "../../store/user/userSlice.ts";
-import styles from '@/styles/pages/loginAuth.module.css'
+import styles from '@/styles/pages/Auth.module.css'
 
 const RegisterPage = () => {
     const dispatch = useDispatch();

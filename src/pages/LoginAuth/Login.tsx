@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type {RootState} from "../../store";
 import {loginRequest} from "../../store/user/userSlice.ts";
-import styles from '@/styles/pages/loginAuth.module.css'
+import styles from '@/styles/pages/Auth.module.css'
 import {useNavigate} from "react-router-dom";
 
 const LoginPage = () => {
