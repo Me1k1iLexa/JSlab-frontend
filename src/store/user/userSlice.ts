@@ -1,13 +1,14 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
+import { type User } from '../../types/defaultTypes.ts'
 
 interface UserState {
-    token: string | null
+    user: User | null,
     loading: boolean
     error: string | null
 }
 
 const initialState: UserState = {
-    token: null,
+    user: null,
     loading: false,
     error: null
 }
@@ -20,9 +21,9 @@ const userSlice = createSlice({
             state.loading = true
             state.error = null
         },
-        loginSuccess(state, action: PayloadAction<string>) {
+        loginSuccess(state, action: PayloadAction<{ id:number; email: string; username?: string }>) {
             state.loading = false
-            state.token = action.payload
+            state.user = action.payload
         },
         loginFailure(state, action: PayloadAction<string>) {
             state.loading = false
@@ -38,6 +39,25 @@ const userSlice = createSlice({
         registerFailure(state, action: PayloadAction<string>) {
             state.loading = false
             state.error = action.payload
+        },
+        loadUserRequest(state){
+            state.loading = true
+            state.error = null
+        },
+        loadUserSuccess(state, action: PayloadAction<User>){
+            state.loading = false
+            state.user = action.payload
+        },
+        loadUserFailure(state, action: PayloadAction<string>) {
+            state.loading = false
+            state.user = null
+            state.error = action.payload
+        },
+        logout(state){
+            state.user = null
+        },
+        logoutFailure(state, action: PayloadAction<string>) {
+            state.error = action.payload
         }
     }
 })
@@ -48,6 +68,11 @@ export const {
     loginFailure,
     registerRequest,
     registerSuccess,
-    registerFailure
+    registerFailure,
+    loadUserRequest,
+    loadUserSuccess,
+    loadUserFailure,
+    logout,
+    logoutFailure,
 } = userSlice.actions
 export default userSlice.reducer
